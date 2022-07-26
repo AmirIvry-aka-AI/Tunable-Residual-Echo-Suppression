@@ -17,7 +17,7 @@
 
 
 ## General Information
-The attached code implements the two measures we developed to better assess speech quality and echo suppression during double-talk. In essence, the DSML and RESL measures are fit to evaluate any deep learning-based system that can be viewed as a gain, not just RES systems as done in this study. These measures are established on the idea that this time-varying gain, when applied separately to the desired signal and to its interference, produces a more instructive insight on the system performance. In fact, this separation allows an independent assessment of the speech distortion and the interference suppression of the system. Fellows are encouraged to apply these measures to their own RES systems, as well as to speech enhancement, speech recognition in transient noisy environment, and acoustic echo cancellation systems. 
+This code implements a deep learning-based residual echo suppressor that is meant to preserve desired speech and cancel echo in mono acoustic echo cancellation setups. This implementation is computationaly lean, and embeds a training objective function with a dedicated design parameter. This parameter dynamically controls the trade-off between speech distortion and echo suppression that the system exhibits. A trained pytorch model is supplied, with scripts that enable training from scratch, fine-tuning, and inference.
 
 
 ## Technologies Used
