@@ -7,7 +7,6 @@
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Technologies Used](#technologies-used)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
@@ -17,25 +16,14 @@
 
 
 ## General Information
-This code implements a deep learning-based residual echo suppressor that is meant to preserve desired speech and cancel echo in mono acoustic echo cancellation setups. This implementation is computationaly lean, and embeds a training objective function with a dedicated design parameter. This parameter dynamically controls the trade-off between speech distortion and echo suppression that the system exhibits. A trained pytorch model is supplied, with scripts that enable training from scratch, fine-tuning, and inference.
-
-
-## Technologies Used
-- Python 3.8.6
-- scipy==1.7.0
-- matplotlib==3.4.2
-- numpy==1.21.0
+This code implements a deep learning-based residual echo suppressor that is meant to preserve desired speech and cancel echo in mono acoustic echo cancellation setups. This implementation is computationaly lean, and embeds a training objective function with a dedicated design parameter. This parameter dynamically controls the trade-off between speech distortion and echo suppression that the system exhibits. A pytorch model is provided with a Python-MATLAB API that allows training from scratch, fine-tuning, and inference.
 
 
 ## Setup
 To prepare for usage, the user should follow these steps:
 - Clone this repo
 - Set up a virtual environment and run: `pip install -r requirements.txt`
-- Create a parent direcotry and assign its relative path to `data_path` variable inside `main.py`
-- Inside this dir, locate each example in a separate subdirectory with a unique name. Every subfolder must contain the near end speech, the RES input before the system gain, and the RES prediction after the system gain, all in the time domain (.wav format). The names of these 3 files are user-dependent, but should not vary accross subdirectories. Assign the files names to `patterns` inside `main.py` and ensure the order of appearance is as given above.
-
-The last two steps are explained with the following demo example. After cloning the repo and setting up the venv, a parent directory called _Demo_ is created and its name is assigned to `data_path`. Inside _Demo_, there are 5 subdirectories uniquely named _Example 1_ through _Exmaple 5_. Inside _Example 1_, for instance, there are several files, 3 of which are essential - _near_end_speech.wav_, _res_input.wav_, and _res_prediction.wav_. These names are consistent across all subdirectores and are assigned in *that order* to `patterns`.
-
+- Create a MATLAB project with the following folder leveling:
 
 | ![image](https://user-images.githubusercontent.com/22732198/125336393-64a29000-e356-11eb-910d-1b7af4520549.png) |
 |:--:|
@@ -43,10 +31,7 @@ The last two steps are explained with the following demo example. After cloning 
 
 
 ## Usage
-After setup, the user should follow these steps to use the code:
-- run: `main.py`
-- The log file `evaluation_metrics.txt` (the name is hard-coded) will appear inside the path assigned to the variable `data_path` (see _Setup_ for details). It contains the mean and standard deviation values of the DSML and RESL measures for every subdirectory.
-
+Open mainscript.m and follow internal MATLAB's documentation on how to insert user parameters and how to employ the PYTHON API. The user will be required to mention the desired scenario (training/fine-tuning/testing) and provide path to data.
 
 | ![image](https://user-images.githubusercontent.com/22732198/125337140-4ab57d00-e357-11eb-91d7-40c16f2864f8.png) |
 |:--:|
@@ -54,22 +39,15 @@ After setup, the user should follow these steps to use the code:
 
 
 ## Project Status
-Project is complete. Occassional fine-tuning may appear (see _Room for Improvement_).
-
-
-## Room for Improvement
-Future release may include:
-- Automatic double-talk detector to filter out irrelavant single-talk segments 
-- Enhance user experience by adding more features and GUI
-- Permit running the code from shell
+Project is complete. Occassional updating of models trained on more data may occur.
 
 
 ## Acknowledgements
 This research was supported by the Pazy Research Foundation, the Israel Science Foundation (ISF), and the International Speech Communication Association (ISCA). We would also like to thank stem audio for their technical support.<br/> If you use this repo or other instance of this research, please cite the following: <br/>
 `@inproceedings{ivry2021objective,`<br/>
-  `title={Objective Metrics to Evaluate Residual-Echo Suppression During Double-Talk},`<br/>
+  `title={DEEP RESIDUAL ECHO SUPPRESSION WITH A TUNABLE TRADEOFF BETWEEN SIGNAL DISTORTION AND ECHO SUPPRESSION},`<br/>
   `author={Ivry, Amir and Cohen, Israel and Berdugo, Baruch},`<br/>
-  `booktitle={WASPAA},`<br/>
+  `booktitle={ICASSP},`<br/>
   `year={2021},`<br/>
   `organization={IEEE}`<br/>
 `}`
