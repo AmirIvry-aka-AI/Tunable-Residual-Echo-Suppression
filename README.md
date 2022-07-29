@@ -26,7 +26,7 @@ To prepare for usage, the user should follow these steps:
 - Set up a virtual environment and run: `pip install -r requirements.txt`
 
 ## Usage
-Open mainScript.m and follow internal MATLAB's documentation on how to insert user parameters and how to employ the PYTHON API. The user will be required to mention the desired scenario (training/testing) and provide relative path to parent data directory. 
+Open mainScript.m and follow internal MATLAB's documentation on how to insert user parameters and how to employ the PYTHON API. The user will be required to mention the desired scenario (training/testing) and provide relative path to parent data directory. In case of 'train' mode, user will also need to choose statistics to apply on the test set, and existing Pytorch model.
 
 ## Acknowledgements
 This research was supported by the Pazy Research Foundation, the Israel Science Foundation (ISF), and the International Speech Communication Association (ISCA). We would also like to thank stem audio for their technical support.<br/> If you use this repo or other instance of this research, please cite the following: <br/>
