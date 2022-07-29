@@ -16,19 +16,19 @@
 
 
 ## General Information
-This code implements a deep learning-based residual echo suppressor that is meant to preserve desired speech and cancel echo in mono acoustic echo cancellation setups. This implementation is computationaly lean, and embeds a training objective function with a dedicated design parameter. This parameter dynamically controls the trade-off between speech distortion and echo suppression that the system exhibits. A pytorch model is provided with a Python-MATLAB API that allows training from scratch, fine-tuning, and inference.
+This code implements a deep learning-based residual echo suppressor that is meant to preserve desired speech and cancel echo in mono acoustic echo cancellation setups. This implementation is computationaly lean, and embeds a training objective function with a dedicated design parameter. This parameter dynamically controls the trade-off between speech distortion and echo suppression that the system exhibits. A pytorch model is provided with a Python-MATLAB API that allows training and inference.
 
 
 ## Setup
 To prepare for usage, the user should follow these steps:
 - Clone this repo
-- Set up a virtual environment and run: `pip install -r requirements.txt`
-- Create a MATLAB project with the following folder leveling:
-
-| ![image](https://user-images.githubusercontent.com/22732198/125336393-64a29000-e356-11eb-910d-1b7af4520549.png) |
+- Create a MATLAB project with the following folder leveling, where 'data_folder' contains two subfolders - 'train' and 'test':
+| ![folder_structure](https://user-images.githubusercontent.com/22732198/181769787-93920292-1477-451d-b35f-5655dca0a4ed.PNG) |
 |:--:|
-| *Snippet of a demo project setup, prepared for usage.* |
-
+| *MATLAB project leveling.* |
+- The 'train' folder holds the 'mic.pcm', 'ref.pcm', and 'target.pcm' files. The 'test' folder holds the same without the 'target.pcm'
+- Set up a virtual environment and run: `pip install -r requirements.txt`
+- Follow MATLAB's 'main_script.m' documentation
 
 ## Usage
 Open mainscript.m and follow internal MATLAB's documentation on how to insert user parameters and how to employ the PYTHON API. The user will be required to mention the desired scenario (training/fine-tuning/testing) and provide path to data.
