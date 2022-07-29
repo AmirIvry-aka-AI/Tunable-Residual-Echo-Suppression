@@ -18,9 +18,8 @@ This code implements a deep learning-based residual echo suppressor that is mean
 To prepare for usage, the user should follow these steps:
 - Clone this repo
 - Create a MATLAB project with the following folder leveling, where 'data folder' contains two subfolders - 'train' and 'test':
-| ![folder_structure](https://user-images.githubusercontent.com/22732198/181769787-93920292-1477-451d-b35f-5655dca0a4ed.PNG) |
-|:--:|
-| *MATLAB project leveling.* |
+![folder_structure](https://user-images.githubusercontent.com/22732198/181769787-93920292-1477-451d-b35f-5655dca0a4ed.PNG)
+<p align="center"><sub>MATLAB project leveling. Here</sub></p>
 - The 'train' folder holds the 'mic.pcm', 'ref.pcm', and 'target.pcm' files. The 'test' folder holds the same without the 'target.pcm'
 - Set up a virtual environment and run: `pip install -r requirements.txt`
 
